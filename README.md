@@ -73,6 +73,3 @@ Incluye capturas de pantalla de:
 - Documentación de Docker: [Docker Docs](https://docs.docker.com/)
 - Repositorio en GitHub para el proyecto de ejemplo: [api-poli-integracion](https://github.com/ANDRESSEGURARUEDA/api-poli-integracion)
 
----
-
-Este README proporciona una guía completa para cualquier persona que desee comprender y reproducir el entorno del proyecto.
