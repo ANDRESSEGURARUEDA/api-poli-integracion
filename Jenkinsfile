@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'Subiendo la imagen al Docker Hub'
                 script {
-                    withCredentials([string(credentialsId: '123456', variable: 'DOCKER_PASSWORD')]) {
+                    withCredentials([string(credentialsId: 'Ar081619*', variable: 'DOCKER_PASSWORD')]) {
                         sh '''
                             docker login -u javatechie -p $DOCKER_PASSWORD
                             docker tag repository-app-day:1.0.0.0-SNAPSHOT poli/integration-api-rest
