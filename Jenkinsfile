@@ -27,8 +27,8 @@ pipeline {
                 withCredentials([string(credentialsId: 'docker-hub-password', variable: 'DOCKER_PASSWORD')]) {
                     sh '''
                         echo $DOCKER_PASSWORD | docker login -u andresrueda0816 --password-stdin
-                        docker tag repository-app-day:1.0.0.0-SNAPSHOT poli/integration-api-rest
-                        docker push poli/integration-api-rest
+                        docker tag repository-app-day:1.0.0.0-SNAPSHOT andresrueda0816/api-rest-appday:1.0.0.0-SNAPSHOT
+                        docker push andresrueda0816/api-rest-appday:1.0.0.0-SNAPSHOT
                     '''
                 }
                 }
