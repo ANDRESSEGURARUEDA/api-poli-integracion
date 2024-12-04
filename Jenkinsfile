@@ -24,13 +24,13 @@ pipeline {
             steps {
                 echo 'Subiendo la imagen al Docker Hub'
                 script {
-                    withCredentials([string(credentialsId: 'docker-hub-password', variable: 'DOCKER_PASSWORD')]) {
-                        sh '''
-                            docker login -u javatechie -p $DOCKER_PASSWORD
-                            docker tag repository-app-day:1.0.0.0-SNAPSHOT poli/integration-api-rest
-                            docker push poli/integration-api-rest
-                        '''
-                    }
+                withCredentials([string(credentialsId: 'docker-hub-password', variable: 'DOCKER_PASSWORD')]) {
+                    sh '''
+                        echo $DOCKER_PASSWORD | docker login -u andresrueda0816 --password-stdin
+                        docker tag repository-app-day:1.0.0.0-SNAPSHOT poli/integration-api-rest
+                        docker push poli/integration-api-rest
+                    '''
+                }
                 }
             }
         }
