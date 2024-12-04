@@ -24,21 +24,24 @@ pipeline {
             steps {
                 echo 'Subiendo la imagen al Docker Hub'
                 script {
-                withCredentials([string(credentialsId: 'docker-hub-password', variable: 'DOCKER_PASSWORD')]) {
-                    sh '''
-                        echo $DOCKER_PASSWORD | docker login -u andresrueda0816 --password-stdin
-                        docker tag repository-app-day:1.0.0.0-SNAPSHOT andresrueda0816/api-rest-appday:1.0.0.0-SNAPSHOT
-                        docker push andresrueda0816/api-rest-appday:1.0.0.0-SNAPSHOT
-                    '''
-                }
+                    withCredentials([string(credentialsId: 'docker-hub-password', variable: 'DOCKER_PASSWORD')]) {
+                        sh '''
+                            echo $DOCKER_PASSWORD | docker login -u andresrueda0816 --password-stdin
+                            docker tag repository-app-day:1.0.0.0-SNAPSHOT andresrueda0816/api-rest-appday:1.0.0.0-SNAPSHOT
+                            docker push andresrueda0816/api-rest-appday:1.0.0.0-SNAPSHOT
+                        '''
+                    }
                 }
             }
         }
         stage('Execute Commands') {
             steps {
-                echo 'Ejecutando comandos del script comandos.sh'
+                echo 'Asegurando permisos y ejecutando el script comandos.sh'
                 script {
-                    sh './comandos.sh'
+                    sh '''
+                        chmod +x ./comandos.sh
+                        ./comandos.sh
+                    '''
                 }
             }
         }
