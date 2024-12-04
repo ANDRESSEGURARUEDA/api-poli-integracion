@@ -38,6 +38,7 @@ podTemplate(
 
       if (isRelease) {
         echo "Es version release: "+ prodTag
+        echo "Es version release: "+ prodTag
       } else {
         echo "Es version Snapshot: "+ prodTag
       }
